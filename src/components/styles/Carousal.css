@@ -1,0 +1,10 @@
+.carousal {
+    height: 200px;
+    margin-top: 8px;
+}
+.cImage {
+    /* object-fit: contain; */
+    object-fit: cover;
+    object-position: 25% 25%;
+    height: 200px;
+}

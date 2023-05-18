@@ -1,0 +1,51 @@
+
+
+.containerr {
+    width: 85%;
+    margin: 5px auto;
+    background-color: aquamarine;
+}
+
+
+.carouselcontainerr {
+    position: relative;
+    background-color: bisque;
+    display: inline-block;
+}
+
+
+.product-carousel {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    padding: 26px;
+}
+
+.product-container {
+    padding: 0 10px;
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.controlsL,.controlsR {
+    position: absolute;
+    background-color: antiquewhite;
+    z-index: 1;
+}
+
+.controlsL {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.controlsR {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.con {
+    width: 40px;
+    height: 70px;
+}

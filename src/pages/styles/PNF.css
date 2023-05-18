@@ -1,0 +1,12 @@
+.pnf-row {
+    width: 100vw;
+    height: 79vh;
+    display: flex;
+    align-items: center;
+}
+.pnf-col {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

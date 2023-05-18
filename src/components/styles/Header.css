@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Braah+One&family=Poppins:wght@500&display=swap');
+
+.navbar-brand{
+    font-family: 'Braah One', sans-serif;
+    font-size: 40px;
+    padding-top: 15px;
+    margin-left: 15px;
+}
+
+.nav-link {
+    font-family: 'Poppins', sans-serif;
+}
+
+.searchbox {
+    margin-left: 50px;
+    width: max-content;
+    flex: 1;
+    margin-right: 20px;
+}
+
+.active {
+    background-color: bisque;
+    border-radius: 10px;
+}
