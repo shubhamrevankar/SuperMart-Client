@@ -1,0 +1,23 @@
+
+.card-price {
+    top: 100px;
+}
+
+.bg-white {
+ background-color: white !important;
+}
+
+.yourCart {
+    position: sticky;
+    top: 90px;
+    border-top: solid 10px #f1f3f6;
+    border-bottom: 1px solid rgb(197, 195, 195);
+}
+
+.cartLeft {
+    background-color: rgb(255, 255, 255);
+}
+
+.cartRight {
+    margin-top: 10px;
+}

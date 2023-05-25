@@ -5,21 +5,24 @@ function Carousal() {
   const data = [
     {
       _id: 1,
-      image:
-        "https://kinsta.com/wp-content/uploads/2020/10/wordpress-slider.png",
+      image: "8277025.jpg",
       alt: "1",
     },
     {
       _id: 2,
-      image:
-        "https://kinsta.com/wp-content/uploads/2020/10/wordpress-slider.png",
+      image: "5092428.jpg",
       alt: "2",
     },
     {
       _id: 3,
-      image:
-        "https://kinsta.com/wp-content/uploads/2020/10/wordpress-slider.png",
+      image: "fashion-social-media-banner-web-template_237398-223.avif",
       alt: "3",
+    },
+    {
+      _id: 4,
+      image:
+        "flat-social-media-cover-template-autumn-celebration_23-2149521871.avif",
+      alt: "4",
     },
   ];
 

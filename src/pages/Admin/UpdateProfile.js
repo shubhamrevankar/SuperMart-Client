@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react"; 
+import React, { useState, useEffect } from "react";
 import { useAuth } from "../../context/auth";
 import { toast } from "react-toastify";
 import axios from "axios";
 import Header_Footer from "../../Layout/Header_Footer";
-import UserMenu from './../../components/UserMenu';
-const Profile = () => {
+import AdminSideBar from "./AdminSidebar";
+const UpdateProfile = () => {
   //context
   const [auth, setAuth] = useAuth();
   //state
@@ -27,14 +27,14 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.put("/api/v1/auth/profile", {
+      const { data } = await axios.put("http://localhost:5000/api/v1/auth/profile", {
         name,
         email,
         password,
         phone,
         address,
       });
-      if (data?.errro) {
+      if (data?.error) {
         toast.error(data?.error);
       } else {
         setAuth({ ...auth, user: data?.updatedUser });
@@ -51,13 +51,13 @@ const Profile = () => {
   };
   return (
     <Header_Footer>
-      <div className="container-fluid m-3 p-3 dashboard">
-        <div className="row">
-          <div className="col-md-3">
-            <UserMenu />
+      <div className="container-fluid">
+        <div className="row flex-nowrap">
+          <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
+            <AdminSideBar />
           </div>
-          <div className="col-md-8">
-            <div className="form-container" style={{ marginTop: "-40px" }}>
+          <div className="col py-3">
+            <div className="form-container w-50 m-auto bg-light p-5 rounded">
               <form onSubmit={handleSubmit}>
                 <h4 className="title">USER PROFILE</h4>
                 <div className="mb-3">
@@ -125,4 +125,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default UpdateProfile;

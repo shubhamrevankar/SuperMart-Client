@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import "./styles/Header.css";
 import { useAuth } from "../context/auth";
@@ -15,6 +15,23 @@ const Header = () => {
   const [auth, setAuth] = useAuth();
 
   const [cart, setCart] = useCart();
+
+  const [categories, setCategories] = useState([]);
+
+  const getAllCategory = async () => {
+    try {
+      const { data } = await axios.get("/api/v1/category/get-category");
+      if (data?.success) {
+        setCategories(data?.category);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getAllCategory();
+  }, []);
 
   const handleLogout = () => {
     setAuth({
@@ -36,6 +53,14 @@ const Header = () => {
       setValues({ ...values, results: data });
       Navigate("/search");
     } catch (error) {}
+  };
+
+  const getCartTotal = () => {
+    let totalQuantity = 0;
+    cart?.map((e) => {
+      totalQuantity = totalQuantity + e.quantity;
+    });
+    return totalQuantity;
   };
 
   // console.log("auth.user"+JSON.stringify(auth?.user));
@@ -87,34 +112,34 @@ const Header = () => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Dropdown
+                  Category
                 </Link>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link className="dropdown-item" to="#">
-                      Action
+                    <Link
+                      className="dropdown-item"
+                      to={`/allproducts`}
+                    >
+                      All
                     </Link>
                   </li>
-                  <li>
-                    <Link className="dropdown-item" to="#">
-                      Another action
-                    </Link>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="#">
-                      Something else here
-                    </Link>
-                  </li>
+                  {categories.map((cat) => (
+                    <li>
+                      <Link
+                        className="dropdown-item"
+                        to={`/category/${cat.slug}`}
+                      >
+                        {cat.name}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <NavLink className="nav-link" aria-current="page" to="/about">
                   ABOUT
                 </NavLink>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <NavLink className="nav-link" aria-current="page" to="/contact">
                   CONTACT
@@ -138,7 +163,7 @@ const Header = () => {
                         aria-current="page"
                         to={`/dashboard/${
                           auth?.user?.role == 1 ? "admin" : "user"
-                        }`}
+                        }/profile`}
                       >
                         DASHBOARD
                       </Link>
@@ -183,7 +208,7 @@ const Header = () => {
               )}
               <li className="nav-item">
                 <NavLink className="nav-link" aria-current="page" to="/cart">
-                  CART {cart?.length}
+                  CART {getCartTotal()}
                 </NavLink>
               </li>
             </ul>

@@ -3,29 +3,43 @@
 .containerr {
     width: 85%;
     margin: 5px auto;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
 }
 
 
 .carouselcontainerr {
     position: relative;
-    background-color: bisque;
+    /* background-color: bisque; */
     display: inline-block;
 }
 
 
 .product-carousel {
     width: 100%;
-    overflow: hidden;
+    overflow: auto;
     display: flex;
     padding: 26px;
+    scroll-behavior: smooth;
 }
 
 .product-container {
     padding: 0 10px;
     display: flex;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
+    /* overflow-x: hidden;
+    scroll-behavior: smooth; */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.product-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.product-carousel {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 .controlsL,.controlsR {
