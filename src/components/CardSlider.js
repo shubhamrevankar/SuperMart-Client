@@ -2,13 +2,9 @@ import React, { useEffect, useState } from "react";
 import SliderCard from "./ProductCard/SliderCard.js";
 import "./styles/CardSlider.css";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
-import { useCart } from "../context/cart.js";
 import axios from "axios";
 
 const CardSlider = ({ category, id }) => {
-  const navigate = useNavigate();
-  const [cart, setCart] = useCart();
   const [products, setProducts] = useState([]);
 
   let box = document.querySelector(`.id-${id}`);

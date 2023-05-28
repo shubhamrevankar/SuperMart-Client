@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import Header_Footer from "../Layout/Header_Footer";
 import Product from "../components/ProductCard/Product";
 

@@ -14,7 +14,7 @@ const Header = () => {
 
   const [auth, setAuth] = useAuth();
 
-  const [cart, setCart] = useCart();
+  const [cart] = useCart();
 
   const [categories, setCategories] = useState([]);
 
@@ -161,7 +161,7 @@ const Header = () => {
                         className="dropdown-item"
                         aria-current="page"
                         to={`/dashboard/${
-                          auth?.user?.role == 1 ? "admin" : "user"
+                          auth?.user?.role === 1 ? "admin" : "user"
                         }/profile`}
                       >
                         DASHBOARD

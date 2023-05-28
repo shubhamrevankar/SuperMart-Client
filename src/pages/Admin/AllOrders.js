@@ -12,10 +12,8 @@ const AllOrders = () => {
   const [totalQuantity, setTotalQuantity] = useState([]);
   const [orders, setOrders] = useState([]);
 
-  const [pro, setPro] = useState([]);
-  const [auth, setAuth] = useAuth();
-  const [changeStatus, setCHangeStatus] = useState("");
-  const [status, setStatus] = useState([
+  const [auth] = useAuth();
+  const [status] = useState([
     "Not Process",
     "Processing",
     "Shipped",

@@ -24,7 +24,6 @@ import AllProducts from "./pages/AllProducts";
 import UpdateProfileuser from "./pages/user/UpdateProfile";
 import UpdateProfileadmin from "./pages/Admin/UpdateProfile";
 import Ordersadmin from "./pages/Admin/Orders";
-import Payment from "./components/PaymentGateway/Payment";
 import Success from "./components/PaymentGateway/Success";
 import Failure from "./components/PaymentGateway/Failure";
 import AllOrdersadmin from "./pages/Admin/AllOrders";

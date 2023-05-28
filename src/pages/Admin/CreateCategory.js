@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Header_Footer from "./../../Layout/Header_Footer";
-import AdminMenu from "../../components/AdminMenu";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { CategoryForm } from "../../components/Form/CategoryForm";
-import { Button, Modal } from "antd";
+import {  Modal } from "antd";
 import AdminSideBar from "./AdminSidebar";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 

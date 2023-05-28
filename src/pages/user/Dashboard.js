@@ -1,9 +1,7 @@
 import React from "react";
 import Header_Footer from "./../../Layout/Header_Footer";
 import { useAuth } from "../../context/auth";
-import UserMenu from "../../components/UserMenu";
 import "./styles/Dashboard.css";
-import { Link, NavLink } from "react-router-dom";
 import SideBar from "./SideBar";
 
 const Dashboard = () => {

@@ -10,7 +10,7 @@ const AllOrders = () => {
   const [totalQuantity, setTotalQuantity] = useState([]);
   const [orders, setOrders] = useState([]);
 
-  const [auth, setAuth] = useAuth();
+  const [auth] = useAuth();
 
   const navigate = useNavigate();
 

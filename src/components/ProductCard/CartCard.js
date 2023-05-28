@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useCart } from "../../context/cart";
-import { useAuth } from "../../context/auth";
 import "./styles/CartCard.css";
 import { FaPlusCircle, FaMinusCircle, FaTrash } from "react-icons/fa";
 

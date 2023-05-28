@@ -4,7 +4,6 @@ import axios from "axios";
 import { Select } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
 import Header_Footer from "../../Layout/Header_Footer";
-import AdminMenu from "../../components/AdminMenu";
 import AdminSideBar from "./AdminSidebar";
 const { Option } = Select;
 

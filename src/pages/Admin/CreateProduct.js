@@ -15,7 +15,7 @@ const CreateProduct = () => {
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
   const [quantity, setQuantity] = useState("");
-  const [shipping, setShipping] = useState("");
+  const [setShipping] = useState("");
   const [photo, setPhoto] = useState("");
 
   //get all category

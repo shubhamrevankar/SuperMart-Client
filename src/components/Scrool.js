@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+
 import useSmoothHorizontalScroll from "use-smooth-horizontal-scroll";
 
 const Scrool = () => {

@@ -1,13 +1,7 @@
 import React from 'react'
 import {
-  MDBFooter,
-  MDBContainer,
-  MDBCol,
-  MDBRow,
-  MDBIcon,
-  MDBBtn
+  MDBFooter
 } from 'mdb-react-ui-kit';
-import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
   return (

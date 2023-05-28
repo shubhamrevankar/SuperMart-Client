@@ -8,7 +8,7 @@ import { useAuth } from "../../context/auth";
 const Success = () => {
   const [cart, setCart] = useCart();
 
-  const [auth, setAuth] = useAuth();
+  const [auth] = useAuth();
 
   const [flag, setFlag] = useState(false);
 

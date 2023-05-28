@@ -2,14 +2,9 @@ import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./styles/SliderCard.css";
 import { useCart } from "../../context/cart";
-import { useAuth } from "../../context/auth";
-import { toast } from "react-toastify";
-import axios from "axios";
 
 const SliderCard = ({ p }) => {
   const [cart, setCart] = useCart();
-  const [auth, setAuth] = useAuth();
-
   const navigate = useNavigate();
 
   const handleAddToCart = () => {

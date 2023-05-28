@@ -1,29 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Checkbox, Radio } from "antd";
-import { Prices } from "../components/Prices";
-import { useCart } from "../context/cart";
 import axios from "axios";
-import { toast } from "react-toastify";
-import { AiOutlineReload } from "react-icons/ai";
 import "./styles/HomePage.css";
 import Header_Footer from "./../Layout/Header_Footer";
 import Carousal from "../components/Carousal";
-import CardSlider from "../components/CardSlider";
 import SliderBlock from "../components/SliderBlock";
-import HomePageCard from "../components/ProductCard/HomePageCard";
-import Scrool from "../components/Scrool";
 
 const HomePage = () => {
-  const navigate = useNavigate();
-  const [cart, setCart] = useCart();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [checked, setChecked] = useState([]);
-  const [radio, setRadio] = useState([]);
-  const [total, setTotal] = useState(0);
-  const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(false);
+  const [radio] = useState([]);
+  const [setTotal] = useState(0);
+  const [page] = useState(1);
+  const [setLoading] = useState(false);
 
   //get all cat
   const getAllCategory = async () => {

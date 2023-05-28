@@ -3,25 +3,21 @@ import { useCart } from "../context/cart";
 import { useAuth } from "../context/auth";
 import { Link, useNavigate } from "react-router-dom";
 // import DropIn from "braintree-web-drop-in-react";
-import { AiFillWarning } from "react-icons/ai";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "./styles/Cart.css";
 import Header_Footer from "../Layout/Header_Footer";
 import CartCard from "../components/ProductCard/CartCard";
-import Payment from "../components/PaymentGateway/Payment";
 
 const CartPage = () => {
-  const [auth, setAuth] = useAuth();
   const [cart, setCart] = useCart();
-  const [clientToken, setClientToken] = useState("");
-  const [instance, setInstance] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [instance] = useState("");
+  const [setLoading] = useState(false);
   const navigate = useNavigate();
 
   const [total, setTotal] = useState(0);
-  const [discount, setDiscount] = useState(0);
-  const [finalPrice, setFinalPrice] = useState(0);
+  const [setDiscount] = useState(0);
+  const [setFinalPrice] = useState(0);
 
   //total price
   const totalPrice = () => {

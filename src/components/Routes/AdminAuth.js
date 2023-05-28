@@ -6,8 +6,7 @@ import Spinner from "../Spinner";
 
 const AdminRoute = () => {
   const [ok, setOk] = useState(false);
-  const [auth, setAuth] = useAuth();
-  const [flag, setFlag] = useState(true);
+  const [auth] = useAuth();
 
   useEffect(() => {
     const authCheck = async () => {

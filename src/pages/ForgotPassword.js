@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Header_Footer from "../Layout/Header_Footer";
 
 import "./styles/Login.css";
-import { Link, useLocation } from "react-router-dom";
 
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";

@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 
 const Contact = () => {
-  const [auth, setAuth] = useAuth();
+  const [auth] = useAuth();
 
   return (
     <Header_Footer title={"Contact Us"}>
