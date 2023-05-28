@@ -9,7 +9,9 @@ const AllProducts = () => {
 
   const getAllProducts = async () => {
     try {
-      const { data } = await axios.get(`/api/v1/product/get-product`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/product/get-product`
+      );
       setProducts(data?.products);
     } catch (error) {
       console.log(error);
@@ -23,7 +25,7 @@ const AllProducts = () => {
   //   console.log(products);
 
   return (
-    <Header_Footer>
+    <Header_Footer title={"All Products"}>
       <div className="mt-3 mb-0 justify-content-center d-flex">
         <strong className="fs-1">All Products</strong>
       </div>

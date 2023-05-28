@@ -13,7 +13,7 @@ const Products = () => {
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:5000/api/v1/product/get-product"
+        `${process.env.REACT_APP_API}/api/v1/product/get-product`
       );
       setProducts(data.products);
     } catch (error) {
@@ -27,7 +27,7 @@ const Products = () => {
     getAllProducts();
   }, []);
   return (
-    <Header_Footer>
+    <Header_Footer title={`Dashboard`}>
       <div className="container-fluid">
         <div className="row flex-nowrap">
           <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
@@ -43,7 +43,7 @@ const Products = () => {
                 {products.map((p) => (
                   <div className="col-3">
                     <div className="p-3">
-                      <Product p={p} update={true}/>
+                      <Product p={p} update={true} />
                     </div>
                   </div>
                 ))}

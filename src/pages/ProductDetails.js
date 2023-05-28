@@ -21,7 +21,7 @@ const ProductDetails = () => {
   const getProduct = async () => {
     try {
       const { data } = await axios.get(
-        `/api/v1/product/get-product/${params.slug}`
+        `${process.env.REACT_APP_API}/api/v1/product/get-product/${params.slug}`
       );
       setProduct(data?.product);
       getSimilarProduct(data?.product?._id, data?.product?.category?._id);
@@ -33,7 +33,7 @@ const ProductDetails = () => {
   const getSimilarProduct = async (pid, cid) => {
     try {
       const { data } = await axios.get(
-        `/api/v1/product/related-product/${pid}/${cid}`
+        `${process.env.REACT_APP_API}/api/v1/product/related-product/${pid}/${cid}`
       );
       setRelatedProducts(data?.products);
     } catch (error) {
@@ -41,7 +41,7 @@ const ProductDetails = () => {
     }
   };
   return (
-    <Header_Footer>
+    <Header_Footer title={`${product?.name}`}>
       <div className="product-details">
         <div className="row container product-details">
           <div className="product-image-wrap col-md-5">

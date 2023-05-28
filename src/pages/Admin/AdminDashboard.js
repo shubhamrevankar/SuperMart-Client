@@ -7,7 +7,7 @@ import AdminSideBar from "./AdminSidebar";
 const AdminDashboard = () => {
   const [auth] = useAuth();
   return (
-    <Header_Footer>
+    <Header_Footer title={`Dashboard`}>
       <div className="container-fluid">
         <div className="row flex-nowrap">
           <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">

@@ -14,7 +14,7 @@ const Products = () => {
   const getAllUsers = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:5000/api/v1/auth/users"
+        `${process.env.REACT_APP_API}/api/v1/auth/users`
       );
       setUsers(data);
     } catch (error) {
@@ -29,7 +29,9 @@ const Products = () => {
         "Are You Sure want to delete this User?\n(This process if irreversible)\nAnswer 'yes' or 'no' "
       );
       if (answer.toLowerCase() !== "yes") return;
-      const { data } = await axios.delete(`/api/v1/auth/delete-user/${id}`);
+      const { data } = await axios.delete(
+        `${process.env.REACT_APP_API}/api/v1/auth/delete-user/${id}`
+      );
       if (data?.success) {
         toast.success("User Deleted Successfully");
       } else {
@@ -47,7 +49,7 @@ const Products = () => {
     getAllUsers();
   }, []);
   return (
-    <Header_Footer>
+    <Header_Footer title={`Dashboard`}>
       <div className="container-fluid">
         <div className="row flex-nowrap">
           <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">

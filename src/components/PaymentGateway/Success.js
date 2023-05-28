@@ -38,7 +38,7 @@ const Success = () => {
         console.log(orderCart);
         // console.log(auth?.user);
         const { data } = await axios.post(
-          "http://localhost:5000/api/v1/orders/add-order",
+          `${process.env.REACT_APP_API}/api/v1/orders/add-order`,
           {
             products: orderCart,
             quantity: quantity,

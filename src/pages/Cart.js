@@ -61,10 +61,13 @@ const CartPage = () => {
     try {
       setLoading(true);
       const { nonce } = await instance.requestPaymentMethod();
-      const { data } = await axios.post("/api/v1/product/braintree/payment", {
-        nonce,
-        cart,
-      });
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_API}/api/v1/product/braintree/payment`,
+        {
+          nonce,
+          cart,
+        }
+      );
       setLoading(false);
       localStorage.removeItem("cart");
       setCart([]);
@@ -118,7 +121,7 @@ const CartPage = () => {
         };
       });
 
-      fetch("http://localhost:5000/create-checkout-session", {
+      fetch(`${process.env.REACT_APP_API}/create-checkout-session`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -172,7 +175,7 @@ const CartPage = () => {
   console.log(cart);
 
   return (
-    <Header_Footer>
+    <Header_Footer title={"Cart"}>
       <div className="container mt-4 w-100">
         <div className="container w-80 m-auto row">
           <div className="cartLeft p-0 col-9 d-flex flex-column">

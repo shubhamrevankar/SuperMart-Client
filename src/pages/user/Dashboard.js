@@ -9,7 +9,7 @@ import SideBar from "./SideBar";
 const Dashboard = () => {
   const [auth] = useAuth();
   return (
-    <Header_Footer>
+    <Header_Footer title={`Dashboard`}>
       <div className="container-fluid">
         <div className="row flex-nowrap">
           <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
@@ -17,8 +17,10 @@ const Dashboard = () => {
           </div>
           <div className="col py-3">
             <div className="form-container w-50 m-auto bg-light p-5 rounded">
-              <h4 className="title w-100 m-auto text-center fw-semibold">PROFILE</h4>
-              <hr/>
+              <h4 className="title w-100 m-auto text-center fw-semibold">
+                PROFILE
+              </h4>
+              <hr />
               <div className="p-3 mt-4">
                 <div className="mb-4 d-flex align-items-center row ps-3 pe-3 ">
                   <span className="col-3 fs-3 text-secondary">Name:</span>

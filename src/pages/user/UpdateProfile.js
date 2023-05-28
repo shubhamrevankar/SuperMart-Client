@@ -27,13 +27,16 @@ const UpdateProfile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.put("/api/v1/auth/profile", {
-        name,
-        email,
-        password,
-        phone,
-        address,
-      });
+      const { data } = await axios.put(
+        `${process.env.REACT_APP_API}/api/v1/auth/profile`,
+        {
+          name,
+          email,
+          password,
+          phone,
+          address,
+        }
+      );
       if (data?.errro) {
         toast.error(data?.error);
       } else {
@@ -50,7 +53,7 @@ const UpdateProfile = () => {
     }
   };
   return (
-    <Header_Footer>
+    <Header_Footer title={`Dashboard`}>
       <div className="container-fluid">
         <div className="row flex-nowrap">
           <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">

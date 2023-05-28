@@ -19,7 +19,7 @@ const CreateCategory = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/v1/category/create-category",
+        `${process.env.REACT_APP_API}/api/v1/category/create-category`,
         { name: value }
       );
       if (data?.success) {
@@ -36,7 +36,7 @@ const CreateCategory = () => {
   const getAllCategories = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:5000/api/v1/category/get-category"
+        `${process.env.REACT_APP_API}/api/v1/category/get-category`
       );
       if (data.success) {
         setCategory(data.category);
@@ -55,7 +55,7 @@ const CreateCategory = () => {
     e.preventDefault();
     try {
       const { data } = await axios.put(
-        `http://localhost:5000/api/v1/category/update-category/${selected._id}`,
+        `${process.env.REACT_APP_API}/api/v1/category/update-category/${selected._id}`,
         { name: updatedName }
       );
       if (data?.success) {
@@ -76,7 +76,7 @@ const CreateCategory = () => {
   const handleDelete = async (pid) => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:5000/api/v1/category/delete-category/${pid}`
+        `${process.env.REACT_APP_API}/api/v1/category/delete-category/${pid}`
       );
       if (data?.success) {
         toast.success(data?.message);
@@ -93,7 +93,7 @@ const CreateCategory = () => {
   // console.log(category);
 
   return (
-    <Header_Footer>
+    <Header_Footer title={`Dashboard`}>
       <div className="container-fluid">
         <div className="row flex-nowrap">
           <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
@@ -109,14 +109,14 @@ const CreateCategory = () => {
                   handleSubmit={handleSubmit}
                 />
               </div>
-              <hr/>
+              <hr />
               <h4>All Categories</h4>
               {category?.map((c) => {
                 return (
                   <div
                     key={c._id}
                     className="w-100 mt-3 d-flex align-items-center justify-content-between p-3 ms-2 me-2 rounded-4 border"
-                    style={{backgroundColor:"white"}}
+                    style={{ backgroundColor: "white" }}
                   >
                     <h3 className="m-0 p-0">{c.name}</h3>
                     <div className="d-flex">

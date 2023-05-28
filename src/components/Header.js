@@ -20,7 +20,9 @@ const Header = () => {
 
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("/api/v1/category/get-category");
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/category/get-category`
+      );
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -47,7 +49,7 @@ const Header = () => {
     e.preventDefault();
     try {
       const { data } = await axios.get(
-        `/api/v1/product/search/${values.keyword}`
+        `${process.env.REACT_APP_API}/api/v1/product/search/${values.keyword}`
       );
       console.log(data);
       setValues({ ...values, results: data });
@@ -116,10 +118,7 @@ const Header = () => {
                 </Link>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link
-                      className="dropdown-item"
-                      to={`/allproducts`}
-                    >
+                    <Link className="dropdown-item" to={`/allproducts`}>
                       All
                     </Link>
                   </li>

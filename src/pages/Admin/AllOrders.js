@@ -40,7 +40,9 @@ const AllOrders = () => {
 
   const getOrders = async () => {
     try {
-      const { data } = await axios.get("/api/v1/orders/get-allorders");
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/orders/get-allorders`
+      );
       setOrders(data);
     } catch (error) {
       console.log(error);
@@ -62,7 +64,7 @@ const AllOrders = () => {
   const handleChange = async (orderId, value) => {
     try {
       const { data } = await axios.put(
-        `/api/v1/orders/order-status/${orderId}`,
+        `${process.env.REACT_APP_API}/api/v1/orders/order-status/${orderId}`,
         {
           status: value,
         }
@@ -84,7 +86,7 @@ const AllOrders = () => {
   // console.log(orders);
 
   return (
-    <Header_Footer>
+    <Header_Footer title={`All Orders`}>
       <div className="container-fluid">
         <div className="row flex-nowrap">
           <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
@@ -146,7 +148,7 @@ const AllOrders = () => {
                         <div className="col-md-1 text-secondary">{i1 + 1}</div>
                         <div className="col-md-4">
                           <img
-                            src={`/api/v1/product/product-photo/${p._id}`}
+                            src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                             className="card-img-top"
                             alt={p.name}
                             width="100px"

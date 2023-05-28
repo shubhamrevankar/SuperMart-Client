@@ -28,7 +28,7 @@ const CardSlider = ({ category, id }) => {
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get(
-        `/api/v1/product/product-category/${category}`
+        `${process.env.REACT_APP_API}/api/v1/product/product-category/${category}`
       );
       // console.log(data);
       setProducts(data.products);

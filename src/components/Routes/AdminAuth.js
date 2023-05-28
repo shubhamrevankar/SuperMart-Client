@@ -1,34 +1,33 @@
-import React, { useEffect, useState } from 'react'
-import { useAuth } from '../../context/auth'
-import { Outlet } from 'react-router-dom'
-import axios from 'axios'
-import Spinner from '../Spinner'
+import React, { useEffect, useState } from "react";
+import { useAuth } from "../../context/auth";
+import { Outlet } from "react-router-dom";
+import axios from "axios";
+import Spinner from "../Spinner";
 
 const AdminRoute = () => {
-  
-    const [ok,setOk] = useState(false)
-    const [auth,setAuth] = useAuth()
-    const [flag,setFlag] = useState(true)
+  const [ok, setOk] = useState(false);
+  const [auth, setAuth] = useAuth();
+  const [flag, setFlag] = useState(true);
 
-    useEffect(() => {
-        const authCheck = async () => {
-            const res = await axios.get('http://localhost:5000/api/v1/auth/admin-auth')
-            
-            if(res?.data?.ok){
-                setOk(true)
-            }
-            else{
-                setOk(false)
-            }
-        }
-        if(auth?.token){
-            authCheck()
-        }
-        // console.log(ok);
-    },[auth?.token])
+  useEffect(() => {
+    const authCheck = async () => {
+      const res = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/auth/admin-auth`
+      );
 
-    return ok ? <Outlet/> : <Spinner path=''/>
-    
-}
+      if (res?.data?.ok) {
+        setOk(true);
+      } else {
+        setOk(false);
+      }
+    };
+    if (auth?.token) {
+      authCheck();
+    }
+    // console.log(ok);
+  }, [auth?.token]);
 
-export default AdminRoute
+  return ok ? <Outlet /> : <Spinner path="" />;
+};
+
+export default AdminRoute;

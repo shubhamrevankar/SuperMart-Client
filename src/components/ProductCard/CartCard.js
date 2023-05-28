@@ -55,7 +55,7 @@ const CartCard = ({ p, q }) => {
     <div className="cart-card m-0 mb-3 w-100 row p-2 rounded">
       <div className="cart-img col-3 d-flex align-items-center justify-content-center h-100">
         <img
-          src={`/api/v1/product/product-photo/${p._id}`}
+          src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
           className="object-fit-contain"
         />
       </div>

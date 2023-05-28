@@ -50,7 +50,7 @@ const SliderCard = ({ p }) => {
       <div className="slider-card me-2">
         <div className="card-imgg">
           <img
-            src={`/api/v1/product/product-photo/${p._id}`}
+            src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
             alt={p.name}
             className=""
             onClick={() => {

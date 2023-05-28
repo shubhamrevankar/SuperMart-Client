@@ -25,7 +25,7 @@ const UpdateProduct = () => {
   const getSingleProduct = async () => {
     try {
       const { data } = await axios.get(
-        `/api/v1/product/get-product/${params.slug}`
+        `${process.env.REACT_APP_API}/api/v1/product/get-product/${params.slug}`
       );
       setName(data.product.name);
       setId(data.product._id);
@@ -45,7 +45,7 @@ const UpdateProduct = () => {
   //get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("/api/v1/category/get-category");
+      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/category/get-category`);
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -71,7 +71,7 @@ const UpdateProduct = () => {
       photo && productData.append("photo", photo);
       productData.append("category", category);
       const { data } = axios.put(
-        `/api/v1/product/update-product/${id}`,
+        `${process.env.REACT_APP_API}/api/v1/product/update-product/${id}`,
         productData
       );
       if (data?.success) {
@@ -92,7 +92,7 @@ const UpdateProduct = () => {
       let answer = window.prompt("Are You Sure want to delete this product ? ");
       if (answer.toLowerCase() !== "yes") return;
       const { data } = await axios.delete(
-        `/api/v1/product/delete-product/${id}`
+        `${process.env.REACT_APP_API}/api/v1/product/delete-product/${id}`
       );
       toast.success("Product Deleted Succfully");
       navigate("/dashboard/admin/products");
@@ -102,7 +102,7 @@ const UpdateProduct = () => {
     }
   };
   return (
-    <Header_Footer>
+    <Header_Footer title={`Dashboard`}>
       <div className="container-fluid">
         <div className="row flex-nowrap">
           <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
@@ -217,12 +217,18 @@ const UpdateProduct = () => {
                 </div>
                 <div className="d-flex justify-content-evenly w-100">
                   <div className="mb-3 w-100 p-3">
-                    <button className="btn btn-primary w-100" onClick={handleUpdate}>
+                    <button
+                      className="btn btn-primary w-100"
+                      onClick={handleUpdate}
+                    >
                       UPDATE PRODUCT
                     </button>
                   </div>
                   <div className="mb-3 w-100 p-3">
-                    <button className="btn btn-danger w-100" onClick={handleDelete}>
+                    <button
+                      className="btn btn-danger w-100"
+                      onClick={handleDelete}
+                    >
                       DELETE PRODUCT
                     </button>
                   </div>

@@ -13,7 +13,7 @@ const Contact = () => {
   const [auth, setAuth] = useAuth();
 
   return (
-    <Header_Footer>
+    <Header_Footer title={"Contact Us"}>
       <div id="contact" className="contact-area section-padding">
         <div className="container">
           <div className="section-title text-center">

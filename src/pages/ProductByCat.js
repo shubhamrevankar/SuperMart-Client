@@ -13,7 +13,7 @@ const ProductByCat = () => {
   const getProductByCat = async () => {
     try {
       const { data } = await axios.get(
-        `/api/v1/product/product-category/${params.slug}`
+        `${process.env.REACT_APP_API}/api/v1/product/product-category/${params.slug}`
       );
       setProducts(data?.products);
     } catch (error) {
@@ -23,7 +23,9 @@ const ProductByCat = () => {
 
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("/api/v1/category/get-category");
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/category/get-category`
+      );
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -48,7 +50,7 @@ const ProductByCat = () => {
   }, [categories]);
 
   return (
-    <Header_Footer>
+    <Header_Footer title={`${category}`}>
       <div className="mt-3 mb-0 justify-content-center d-flex">
         <strong className="fs-1">{category}</strong>
       </div>
