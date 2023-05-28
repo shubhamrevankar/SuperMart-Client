@@ -51,7 +51,7 @@ const Header = () => {
       const { data } = await axios.get(
         `${process.env.REACT_APP_API}/api/v1/product/search/${values.keyword}`
       );
-      console.log(data);
+      // console.log(data);
       setValues({ ...values, results: data });
       Navigate("/search");
     } catch (error) {}

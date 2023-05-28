@@ -1,23 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useCart } from "../context/cart";
 import { useAuth } from "../context/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import DropIn from "braintree-web-drop-in-react";
-import axios from "axios";
-import { toast } from "react-toastify";
 import "./styles/Cart.css";
 import Header_Footer from "../Layout/Header_Footer";
 import CartCard from "../components/ProductCard/CartCard";
 
 const CartPage = () => {
   const [cart, setCart] = useCart();
-  const [instance] = useState("");
-  const [setLoading] = useState(false);
-  const navigate = useNavigate();
 
   const [total, setTotal] = useState(0);
-  const [setDiscount] = useState(0);
-  const [setFinalPrice] = useState(0);
 
   //total price
   const totalPrice = () => {
@@ -52,29 +45,6 @@ const CartPage = () => {
   //   getToken();
   // }, [auth?.token]);
 
-  //handle payments
-  const handlePayment = async () => {
-    try {
-      setLoading(true);
-      const { nonce } = await instance.requestPaymentMethod();
-      const { data } = await axios.post(
-        `${process.env.REACT_APP_API}/api/v1/product/braintree/payment`,
-        {
-          nonce,
-          cart,
-        }
-      );
-      setLoading(false);
-      localStorage.removeItem("cart");
-      setCart([]);
-      navigate("/dashboard/user/orders");
-      toast.success("Payment Completed Successfully ");
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
-    }
-  };
-
   const getCartTotal = () => {
     let totalQuantity = 0;
     cart?.map((e) => {
@@ -85,8 +55,6 @@ const CartPage = () => {
 
   useEffect(() => {
     setTotal(totalPrice());
-    setDiscount(Math.round(totalPrice() * 0.2));
-    setFinalPrice(totalPrice() - Math.round(totalPrice() * 0.2));
   }, [cart]);
 
   // console.log(auth);
@@ -168,7 +136,7 @@ const CartPage = () => {
     //   });
   };
 
-  console.log(cart);
+  // console.log(cart);
 
   return (
     <Header_Footer title={"Cart"}>
