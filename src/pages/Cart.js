@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useCart } from "../context/cart";
 import { useAuth } from "../context/auth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import DropIn from "braintree-web-drop-in-react";
 import "./styles/Cart.css";
 import Header_Footer from "../Layout/Header_Footer";
 import CartCard from "../components/ProductCard/CartCard";
 
 const CartPage = () => {
+  const navigate = useNavigate();
+
+  const [auth, setAuth] = useAuth();
+
   const [cart, setCart] = useCart();
 
   const [total, setTotal] = useState(0);
@@ -193,9 +197,20 @@ const CartPage = () => {
                   </div>
                 </div>
               </div>
-              <div className="btn btn-success w-100" onClick={handleCheckout}>
-                CheckOut
-              </div>
+              {auth?.user ? (
+                <div className="btn btn-success w-100" onClick={handleCheckout}>
+                  CheckOut
+                </div>
+              ) : (
+                <div
+                  className="btn btn-worning w-100"
+                  onClick={() => {
+                    navigate("/login");
+                  }}
+                >
+                  Login to CheckOut
+                </div>
+              )}
             </div>
           </div>
         </div>

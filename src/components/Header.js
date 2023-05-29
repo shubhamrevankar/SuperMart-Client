@@ -144,7 +144,7 @@ const Header = () => {
                   CONTACT
                 </NavLink>
               </li>
-              {auth.user ? (
+              {auth?.user ? (
                 <li className="nav-item dropdown">
                   <Link
                     className="nav-link dropdown-toggle"
