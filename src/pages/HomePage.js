@@ -41,7 +41,6 @@ const HomePage = () => {
       );
       setProducts(data.products);
     } catch (error) {
-      setLoading(false);
       console.log(error);
     }
   };

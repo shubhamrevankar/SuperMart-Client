@@ -35,7 +35,7 @@ const Success = () => {
           orderedquantity: c?.quantity,
         }));
         const quantity = cart?.map((c) => c?.quantity);
-        console.log(orderCart);
+        // console.log(orderCart);
         // console.log(auth?.user);
         const { data } = await axios.post(
           `${process.env.REACT_APP_API}/api/v1/orders/add-order`,
@@ -49,7 +49,7 @@ const Success = () => {
             buyer: auth?.user?._id,
           }
         );
-        console.log(data);
+        // console.log(data);
         if (data?.ok) {
           localStorage.removeItem("cart");
           setCart([]);

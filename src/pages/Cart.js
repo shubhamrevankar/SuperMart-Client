@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useCart } from "../context/cart";
 import { useAuth } from "../context/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import DropIn from "braintree-web-drop-in-react";
 import "./styles/Cart.css";
 import Header_Footer from "../Layout/Header_Footer";
 import CartCard from "../components/ProductCard/CartCard";
 
 const CartPage = () => {
-  const navigate = useNavigate();
   const [cart, setCart] = useCart();
 
   const [total, setTotal] = useState(0);
@@ -102,7 +101,7 @@ const CartPage = () => {
           return await Promise.reject(json);
         })
         .then(({ url }) => {
-          navigate(`${url}`);
+          window.location = url;
         })
         .catch((e) => {
           console.log(e.error);
