@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import "./styles/ProductDetails.css";
 import Header_Footer from "../Layout/Header_Footer";
 import { FaStar, FaTag } from "react-icons/fa";
+import { useCart } from "../context/cart";
 
 const ProductDetails = () => {
   const reviews = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
@@ -40,6 +41,43 @@ const ProductDetails = () => {
       console.log(error);
     }
   };
+
+  const [cart, setCart] = useCart();
+
+  const handleAddToCart = () => {
+    const index = cart.findIndex((element) => {
+      if (element.product._id === product._id) {
+        return true;
+      }
+
+      return false;
+    });
+
+    // console.log(index);
+
+    if (index === -1) {
+      setCart([...cart, { product, quantity: 1 }]);
+    } else {
+      const newCart = cart.map((e) => {
+        if (e.product._id === product._id) {
+          return { ...e, quantity: e.quantity + 1 };
+        } else {
+          return e;
+        }
+      });
+      setCart(newCart);
+    }
+  };
+
+  const handleBuy = () => {
+    handleAddToCart();
+    navigate("/cart");
+  };
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
   return (
     <Header_Footer title={`${product?.name}`}>
       <div className="product-details">
@@ -48,15 +86,21 @@ const ProductDetails = () => {
             <div className="product-image">
               <div className="w-100">
                 <img
-                  src={`/api/v1/product/product-photo/${product?._id}`}
+                  src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${product?._id}`}
                   className="card-imggg"
                   alt={product?.name}
                 />
                 <div className="d-flex align-items-center justify-content-evenly p-3 mt-4 row">
-                  <button className="btn btn-info col-5 me-1">
+                  <button
+                    className="btn btn-info col-5 me-1"
+                    onClick={handleAddToCart}
+                  >
                     ADD TO CART
                   </button>
-                  <button className="btn btn-warning col-6 ms-1">
+                  <button
+                    className="btn btn-warning col-6 ms-1"
+                    onClick={handleBuy}
+                  >
                     BUY NOW
                   </button>
                 </div>
