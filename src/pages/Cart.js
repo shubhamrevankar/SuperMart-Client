@@ -203,7 +203,7 @@ const CartPage = () => {
                 </div>
               ) : (
                 <div
-                  className="btn btn-worning w-100"
+                  className="btn btn-warning w-100"
                   onClick={() => {
                     navigate("/login");
                   }}
