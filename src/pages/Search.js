@@ -8,7 +8,7 @@ const Search = () => {
     <Header_Footer>
       <div className="container">
         <div className="text-center">
-          <h1>Search Resuts</h1>
+          <h1>Search Results</h1>
           <h6>
             {values?.results.length < 1
               ? "No Products Found"
@@ -16,9 +16,9 @@ const Search = () => {
           </h6>
         </div>
         <div class="container text-center">
-          <div class="row g-2">
+          <div class="row">
             {values?.results.map((p) => (
-              <div className="col-3">
+              <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                 <div className="p-3">
                   <Product p={p} />
                 </div>

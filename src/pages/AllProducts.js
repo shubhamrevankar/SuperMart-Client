@@ -30,9 +30,9 @@ const AllProducts = () => {
       </div>
       <hr />
       <div class="container text-center">
-        <div class="row g-2">
+        <div class="row">
           {products.map((p) => (
-            <div className="col-3">
+            <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
               <div className="p-3">
                 <Product p={p} />
               </div>

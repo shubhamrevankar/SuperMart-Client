@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./styles/Cart.css";
 import Header_Footer from "../Layout/Header_Footer";
 import CartCard from "../components/ProductCard/CartCard";
+import CartCardMobile from "../components/ProductCard/CartCardMobile";
 
 const CartPage = () => {
   const navigate = useNavigate();
@@ -149,7 +150,7 @@ const CartPage = () => {
           <div className="cartLeft p-0 col-9 d-flex flex-column">
             <div
               className="yourCart d-flex align-items-center justify-content-center mb-3 p-3 w-100"
-              style={{ backgroundColor: "white" }}
+              style={{ backgroundColor: "white", zIndex: "5" }}
             >
               <span className="fs-1 fw-semibold">Your Cart</span>
             </div>
@@ -164,7 +165,16 @@ const CartPage = () => {
                   </Link>
                 </div>
               ) : (
-                cart?.map((e) => <CartCard p={e.product} q={e.quantity} />)
+                cart?.map((e) => (
+                  <>
+                    <div className="cardmob">
+                      <CartCardMobile p={e.product} q={e.quantity} />
+                    </div>
+                    <div className="cardweb">
+                      <CartCard p={e.product} q={e.quantity} />
+                    </div>
+                  </>
+                ))
               )}
             </div>
           </div>
@@ -191,6 +201,32 @@ const CartPage = () => {
                       <span className="text-success">FREE</span>
                     </div>
                   </div>
+                  <div className="w-100 d-flex align-items-center justify-content-between p-3 border-top">
+                    <span className="fw-semibold fs-5">Total Amount</span>
+                    <span>{format(total)}</span>
+                  </div>
+                </div>
+              </div>
+              {auth?.user ? (
+                <div className="btn btn-success w-100" onClick={handleCheckout}>
+                  CheckOut
+                </div>
+              ) : (
+                <div
+                  className="btn btn-warning w-100"
+                  onClick={() => {
+                    navigate("/login");
+                  }}
+                >
+                  Login to CheckOut
+                </div>
+              )}
+            </div>
+          </div>
+          <div className="cartRightMobile position-fixed bg-white vw-100 p-3">
+            <div className="card-price-mobile">
+              <div className="mb-3">
+                <div className="bg-white d-flex flex-column w-100 p-2">
                   <div className="w-100 d-flex align-items-center justify-content-between p-3 border-top">
                     <span className="fw-semibold fs-5">Total Amount</span>
                     <span>{format(total)}</span>

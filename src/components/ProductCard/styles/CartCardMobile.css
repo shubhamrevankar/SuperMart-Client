@@ -1,0 +1,10 @@
+.cart-card-mob {
+    height: 400px;
+    background-color: white;
+    border: solid 0.1px rgb(215, 213, 213);
+}
+
+.cart-img-mob>img {
+    max-width: 100%;
+    max-height: 100%;
+}

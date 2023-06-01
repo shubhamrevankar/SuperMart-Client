@@ -18,8 +18,8 @@ const Failure = () => {
         <div style={{ width: "400px" }}>
           <img src={cancel} alt="Success" />
         </div>
-        <div className="d-flex p-3 w-25 align-items-center justify-content-between">
-          <div className="btn btn-info mx-auto">
+        <div className="d-flex p-3 w-100 align-items-center justify-content-center">
+          <div className="btn btn-info ms-auto me-2">
             <Link
               to="/"
               className="underline text-xl underline-offset-4 text-decoration-none text-light"
@@ -27,7 +27,7 @@ const Failure = () => {
               Back to Home
             </Link>
           </div>
-          <div className="btn btn-info mx-auto">
+          <div className="btn btn-info me-auto ms-2">
             <Link
               to="/cart"
               className="underline text-xl underline-offset-4 text-decoration-none text-light"
